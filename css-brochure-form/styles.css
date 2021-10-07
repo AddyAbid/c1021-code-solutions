@@ -1,0 +1,51 @@
+.container {
+  width: 50%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+h2 {
+  text-align: center;
+  font-family: 'Brandon Grotesque', sans-serif;
+  color: rgb(237, 100, 94);
+}
+
+label {
+  font-family: 'AtlasGroteskMedium', sans-serif;
+  font-size: 0.7rem;
+  font-weight: 500;
+  padding-left: 8px;
+}
+
+.full {
+  width: 100%;
+  padding: 10px;
+  border-radius: 5px;
+  border-color: lightgray;
+  border-width: 0.5px;
+  border-style: solid;
+  margin-bottom: 15px;
+  margin-top: 5px;
+  font-family: 'AtlasGroteskLight', sans-serif;
+  font-size: 0.9rem;
+  font-weight: 300;
+}
+
+.button-div {
+  text-align: right;
+  margin-top: 5px;
+}
+
+.button {
+  padding: 10px 20px;
+  border-radius: 20px;
+  border: 1px;
+  color: white;
+  background-color: rgb(237, 100, 94);
+}
+
+#dropdown {
+  background-color: rgb(243, 243, 243);
+  margin-bottom: 2px;
+  font-weight: 400;
+}
