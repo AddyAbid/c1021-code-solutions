@@ -1,0 +1,65 @@
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.row {
+  display: flex;
+  justify-content: space-between;
+}
+
+body {
+  background-color: rgb(25, 150, 218);
+}
+
+.column-full {
+  width: 100%;
+}
+
+p {
+  font-size: 0.9em;
+}
+
+.column-third {
+  width: 32%;
+}
+
+.text-align {
+  text-align: center;
+}
+
+.font {
+  color: rgb(189, 224, 244);
+  font-family: 'Lato', sans-serif;
+}
+
+.font-white {
+  color: white;
+}
+
+.margin {
+  margin: 1.5rem;
+}
+
+img {
+  width: 50%;
+  margin-left: 0;
+  margin-right: 0;
+}
+
+.white-circle {
+  background-color: white;
+  height: 100px;
+  width: 100px;
+  border-radius: 50%;
+  margin: 0 auto;
+  margin-top: 10px;
+}
+
+.margin-bottom {
+  margin-bottom: 0;
+}
+
+.font-gray {
+  color: rgb(235, 236, 236);
+}
