@@ -19,6 +19,10 @@ body {
   display: flex;
 }
 
+.flex-wrap {
+  flex-wrap: wrap;
+}
+
 .column-full {
   width: 100%;
 }
@@ -27,37 +31,14 @@ body {
   text-align: center;
 }
 
-.flex-wrap {
-  flex-wrap: wrap;
+.col-60 {
+  width: 60%;
 }
 
-.col-15 {
-  width: 15%;
-}
-
-.col-35 {
-  width: 35%;
-}
-
-.pl {
-  padding-left: 5px;
+.col-40 {
+  width: 40%;
 }
 
 .col-half {
   width: 50%;
-}
-
-img {
-  width: 100%;
-}
-
-.button-style {
-  font-weight: 700;
-  background-color: white;
-  border-color: rgb(226, 141, 137);
-  border-style: solid;
-  border-width: medium;
-  padding: 10px 40px;
-  margin-top: 1rem;
-  color: rgb(226, 141, 137);
 }
