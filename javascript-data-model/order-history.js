@@ -53,7 +53,7 @@ var orderHistory = [
     shipTo: 'JS Masher',
     returnBy: 'August 4, 2020',
     totalCost: 138.93,
-    item: [
+    items: [
       {
         type: 'hardware',
         name: 'Gamecube Controller',
