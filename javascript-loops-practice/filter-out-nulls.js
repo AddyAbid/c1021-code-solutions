@@ -4,8 +4,6 @@ function filterOutNulls(values) {
   for (var i = 0; i < values.length; i++) {
     if (values[i] !== null) {
       outPut.push(values[i]);
-    } else {
-      continue;
     }
   }
   return outPut;
