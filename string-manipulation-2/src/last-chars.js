@@ -1,7 +1,8 @@
 /* exported lastChars */
-function lastChars(length, string) {
-  var outPut = [];
-  outPut += string;
-  outPut.slice(-outPut.length, length);
+/*
+return string from givin length to end of string
+*/
 
+function lastChars(length, string) {
+  return string.substr(-length);
 }
