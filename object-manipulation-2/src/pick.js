@@ -1,15 +1,21 @@
 /* exported pick */
 /*
-need storage
+
 */
 
 function pick(source, keys) {
   var newObj = {};
+
   for (var key in source) {
     for (var i = 0; i < keys.length; i++) {
-      if (keys[i] === key) {
-        return newObj[keys[i]];
-      }
+      var value = keys[i];
     }
   }
+  if (key === value) {
+
+    newObj[key] = source[keys[i]];
+
+    return newObj;
+  }
+
 }
