@@ -1,0 +1,39 @@
+.container {
+  max-width: 900px;
+}
+
+.row {
+  display: flex;
+}
+
+.col-full {
+  width: 100%;
+}
+
+.flex {
+  display: flex;
+}
+
+.circle {
+  margin: 25% auto;
+  border-radius: 50%;
+  height: 250px;
+  width: 250px;
+}
+
+.color.gray {
+  background-color: gray;
+}
+
+.color.light {
+  background-color: rgb(250, 234, 132);
+  box-shadow: -3px -2px 35px -6px rgba(250, 234, 132, 0.44);
+}
+
+.bg.dark {
+  background-color: black;
+}
+
+.bg.light {
+  background-color: rgb(254, 249, 241);
+}
