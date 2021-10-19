@@ -1,0 +1,64 @@
+.container {
+  max-width: 900px;
+}
+
+.row {
+  display: flex;
+}
+
+.col-full {
+  width: 100%;
+}
+
+.hidden {
+  display: none;
+}
+
+.modal {
+  background-color: rgb(74, 73, 233);
+  color: white;
+  font-size: 1.5rem;
+  padding: 10px 30px;
+  border-radius: 7px;
+  border: 1px;
+  position: static;
+}
+
+.overlay {
+  background-color: rgba(0, 0, 0, 0.7);
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  position: fixed;
+}
+
+.text-style {
+  text-align: center;
+  font-family: sans-serif;
+  padding-top: 50px;
+}
+
+.white-box {
+  background-color: white;
+  border-radius: 10px;
+  position: fixed;
+  top: 250px;
+  bottom: 250px;
+  left: 250px;
+  right: 250px;
+}
+
+.button-no {
+  background-color: rgb(235, 93, 94);
+  color: white;
+  font-size: 1.5rem;
+  padding: 8px 25px;
+  border-radius: 7px;
+  border: 1px;
+  margin-top: 20px;
+}
+
+.text-align {
+  text-align: center;
+}
