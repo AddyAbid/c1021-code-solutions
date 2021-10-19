@@ -3,15 +3,15 @@ var $modal = document.querySelector('.absolute');
 var $noButton = document.querySelector('.button-no');
 $openModal.addEventListener('click', toggleModal);
 $noButton.addEventListener('click', toggleModal);
-var tracker = true;
+var modalOff = true;
 
 function toggleModal(event) {
 
-  if (tracker === true) {
+  if (modalOff === true) {
     $modal.classList.remove('hidden');
-    tracker = false;
+    modalOff = false;
   } else {
-    tracker = true;
+    modalOff = true;
     $modal.classList.add('hidden');
   }
 }
