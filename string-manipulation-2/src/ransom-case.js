@@ -1,14 +1,24 @@
 /* exported ransomCase */
+/*
+create empty storage
+copy given string
+look at each character position in string
+if current position is even that letter is lower case
+if it is odd
+that letter is upper case
+add to storage
+return storage
+
+*/
+
 function ransomCase(string) {
   var outPut = '';
-  var lower = string.toLowerCase();
-  for (var i = 0; i < lower.length; i += 2) {
-    if (lower[i].toUpperCase()) {
-      lower[i] = lower[i].toLowerCase();
-      outPut += lower[i];
-    } else if (lower[i].toLowerCase()) {
-      lower[i] = lower[i].toUpperCase();
-      outPut += lower[i];
+  var copied = string;
+  for (var i = 0; i < copied.length; i++) {
+    if (i % 2 === 0) {
+      outPut += copied[i].toLowerCase();
+    } else if (i % 2 !== 0) {
+      outPut += copied[i].toUpperCase();
     }
   }
   return outPut;
