@@ -1,10 +1,13 @@
 /* exported capitalizeWords */
 function capitalizeWords(string) {
-  string = string.toLowerCase();
+  var copied = string.toLowerCase();
 
-  var outPut = string.split(' ');
-  for (var i = 0; i < outPut.length; i++) {
-    outPut = outPut[0].toUpperCase() + string.substr(1);
+  var stringSplit = copied.split(' ');
+  for (var i = 0; i < stringSplit.length; i++) {
+    var total = stringSplit[i];
 
+    var final;
+    final += total[0].toUpperCase() + total.substr(1);
   }
+  return final;
 }
