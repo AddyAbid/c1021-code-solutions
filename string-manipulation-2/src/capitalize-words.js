@@ -8,14 +8,16 @@ add word with first letter uppercase and every lowercase letter after
 return storage.
 */
 
-function capitalizeWords(string) {
-  var copied = string.toLowerCase();
-  var final;
-  var stringSplit = copied.split(' ');
-  for (var i = 0; i < stringSplit.length; i++) {
-    var total = stringSplit[i];
+// function capitalizeWords(string) {
+//   var copied = string.toLowerCase();
+//   var outPut = '';
+//   for (var i = 0; i < copied.length; i++) {
+//     if (copied[i - 1] === ' ') {
+//       var uppercase = copied[i - 1].toUpperCase();
+//       console.log(uppercase);
+//       var total = uppercase += copied.substr(1);
 
-    final += total[0].toUpperCase() + total.substr(1);
-  }
-  return final;
-}
+//     }
+//   }
+//   return total;
+// }
