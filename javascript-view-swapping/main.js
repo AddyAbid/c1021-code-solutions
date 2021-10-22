@@ -15,15 +15,14 @@ function classActive(event) {
     } else {
       $tabList.className = 'tab';
     }
-
-    var $dataView = event.target.getAttribute('data-view');
-    for (var j = 0; j < $view.length; j++) {
-      var $viewData = $view[j].getAttribute('data-view');
-      if ($viewData === $dataView) {
-        $view[j].className = 'view';
-      } else {
-        $view[j].className = 'view hidden';
-      }
+  }
+  var $dataView = event.target.getAttribute('data-view');
+  for (var j = 0; j < $view.length; j++) {
+    var $viewData = $view[j].getAttribute('data-view');
+    if ($viewData === $dataView) {
+      $view[j].className = 'view';
+    } else {
+      $view[j].className = 'view hidden';
     }
   }
 }
