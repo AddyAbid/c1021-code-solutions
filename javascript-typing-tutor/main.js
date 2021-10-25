@@ -4,7 +4,7 @@ document.addEventListener('keydown', typeKeys);
 var currentLetter = 0;
 function typeKeys(event) {
 
-  if ($span[currentLetter].textContent === event.key || $span[currentLetter].textContent === event.key + ' ') {
+  if ($span[currentLetter].textContent === event.key) {
     $span[currentLetter].classList.remove('red');
     $span[currentLetter].classList.remove('underline-red');
     $span[currentLetter].classList.add('green');
