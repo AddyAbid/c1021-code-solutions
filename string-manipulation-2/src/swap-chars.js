@@ -8,9 +8,9 @@ return string
 */
 
 function swapChars(firstIndex, secondIndex, string) {
-  var arr = string.split(' ');
-  arr[firstIndex] = arr[secondIndex];
-  arr[secondIndex] = arr[firstIndex];
-  var outPut = arr.join(' ');
+  var converted = string.split();
+  var outPut = converted[firstIndex];
+  converted[firstIndex] = converted[secondIndex];
+  converted[secondIndex] = outPut;
   return outPut;
 }

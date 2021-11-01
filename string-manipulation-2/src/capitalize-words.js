@@ -1,23 +1,19 @@
 /* exported capitalizeWords */
 /*
-create storage to hold given string and set all characters to lowercase
-split each word up by space and add to new storage.
-look at each character in storage and assign to new variable
-declare new variable
-add word with first letter uppercase and every lowercase letter after
-return storage.
+assign given value to a storage and make values all lowercase
+change the storage holding the values to an array and split by each space
+look at each value in the new array
+at the current word, make the first letter uppercase and add the rest of the word after the first letter
+create new storage for output and assign the new value of the word joined back together at each space
+return output
 */
 
-// function capitalizeWords(string) {
-//   var copied = string.toLowerCase();
-//   var outPut = '';
-//   for (var i = 0; i < copied.length; i++) {
-//     if (copied[i - 1] === ' ') {
-//       var uppercase = copied[i - 1].toUpperCase();
-//       console.log(uppercase);
-//       var total = uppercase += copied.substr(1);
-
-//     }
-//   }
-//   return total;
-// }
+function capitalizeWords(string) {
+  var word = string.toLowerCase();
+  word = word.split(' ');
+  for (var i = 0; i < word.length; i++) {
+    word[i] = word[i][0].toUpperCase() + word[i].substring(1);
+    var outPut = word.join(' ');
+  }
+  return outPut;
+}
