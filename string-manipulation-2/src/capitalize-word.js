@@ -10,10 +10,10 @@ return storage
 
 function capitalizeWord(word) {
   var lower = word.toLowerCase();
+  if (lower === 'javascript') {
+    lower = 'JavaScript';
+  }
   var upper = word[0].toUpperCase();
   var outPut = upper + lower.substr(1);
-  if (outPut === 'Javascript') {
-    outPut = 'JavaScript';
-  }
   return outPut;
 }
