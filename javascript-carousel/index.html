@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JavaScript Carousel</title>
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container border">
+    <div class="row align-center">
+      <div class="column-quarter">
+        <i class="fas fa-chevron-left left-arrow fa-3x margin-left"></i>
+      </div>
+      <div class="column-half">
+        <div class="img-container">
+          <img src="images/001.png" class="slides" data-view="bulbasaur" dataid="1">
+          <img src="images/004.png" class="hidden slides" data-view="charmander" dataid="2">
+          <img src="images/007.png" class="hidden slides" data-view="squirtle" dataid="3">
+          <img src="images/025.png" class="hidden slides" data-view="pikachu" dataid="4">
+          <img src="images/039.png" class="hidden slides" data-view="jigglypuff" dataid="5">
+        </div>
+      </div>
+      <div class="column-quarter">
+        <i class="fas fa-chevron-right right-arrow fa-3x margin-right"></i>
+      </div>
+    </div>
+    <div class="row">
+      <div class="column-full text-center">
+        <div class="icon-container">
+          <i class="fas fa-circle pd-lf dot" data-view="bulbasaur" dataid="1"></i>
+          <i class="far fa-circle pd-lf dot" data-view="charmander" dataid="2"></i>
+          <i class="far fa-circle pd-lf dot" data-view="squirtle" dataid="3"></i>
+          <i class="far fa-circle pd-lf dot" data-view="pikachu" dataid="4"></i>
+          <i class="far fa-circle pd-lf dot" data-view="jigglypuff" dataid="5"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="main.js"></script>
+</body>
+</html>
