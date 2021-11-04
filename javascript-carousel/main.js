@@ -11,6 +11,8 @@ $dotContainer.addEventListener('click', progressDotClick);
 var imgCounter = 1;
 
 function progressDotClick(event) {
+  clearInterval(timerId);
+  timerId = setInterval(imgSlide, 3000);
   if (!event.target.matches('.dot')) {
     return;
   }
@@ -36,6 +38,8 @@ function progressDotClick(event) {
 }
 
 function clickRight(event) {
+  clearInterval(timerId);
+  timerId = setInterval(imgSlide, 3000);
   imgCounter++;
   for (var i = 0; i < $imgSlides.length; i++) {
     var dataIdNumber = $imgSlides[i].getAttribute('dataid');
@@ -60,6 +64,8 @@ function clickRight(event) {
 }
 
 function clickLeft(event) {
+  clearInterval(timerId);
+  timerId = setInterval(imgSlide, 3000);
   imgCounter--;
   if (imgCounter < 1) {
     imgCounter = 5;
@@ -81,7 +87,7 @@ function clickLeft(event) {
     }
   }
 }
-
+var timerId = null;
 function imgSlide() {
   imgCounter++;
   if (imgCounter > 5) {
@@ -105,4 +111,4 @@ function imgSlide() {
   }
 }
 
-setInterval(imgSlide, 3000);
+timerId = setInterval(imgSlide, 3000);
