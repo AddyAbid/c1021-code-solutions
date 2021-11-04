@@ -12,13 +12,9 @@ return true
 */
 function equal(first, second) {
   for (var i = 0; i < first.length; i++) {
-    var firstArr = first[i];
+    if (first[i] === second[i]) {
+      return true;
+    }
   }
-  for (var j = 0; j < second.length; j++) {
-    var secondArr = second[j];
-  }
-  if (firstArr !== secondArr) {
-    return false;
-  }
-  return true;
+  return false;
 }
