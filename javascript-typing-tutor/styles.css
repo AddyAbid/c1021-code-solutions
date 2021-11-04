@@ -1,0 +1,51 @@
+.container {
+  max-width: 1000px;
+  height: 90vh;
+}
+
+.row {
+  display: flex;
+}
+
+.flex {
+  display: flex;
+}
+
+.col-full {
+  width: 100%;
+}
+
+.text-align {
+  text-align: center;
+}
+
+.mt {
+  margin-top: 15rem;
+}
+
+.text-style {
+  font-size: 2rem;
+  font-family: 'Courier New', Courier, monospace;
+  font-weight: 900;
+  display: inline;
+}
+
+.underline {
+  border-bottom: medium solid black;
+}
+
+.underline-red {
+  border-bottom: medium solid red;
+}
+
+.green {
+  color: rgb(28, 205, 29);
+}
+
+.red {
+  color: red;
+}
+
+h1 {
+  display: inline;
+}
