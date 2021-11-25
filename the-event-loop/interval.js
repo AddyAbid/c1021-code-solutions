@@ -4,8 +4,10 @@ function countDown() {
   console.log(currentCount);
   currentCount--;
   if (currentCount === 0) {
-    console.log('Blast off!');
-    clearInterval(timerId);
+    setTimeout(function () {
+      console.log('Blast off!');
+      clearInterval(timerId);
+    }, 1000);
   }
 }
 
