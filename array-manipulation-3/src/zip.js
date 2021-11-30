@@ -15,10 +15,8 @@ function zip(first, second) {
   }
   temporaryArr.push(first);
   temporaryArr.push(second);
-
-  for (var i = 0; i < temporaryArr.length; i += 2) {
-    output.push(temporaryArr.slice(i, i + 2));
-
+  for (var i = 0; i < temporaryArr.length; i++) {
+    output.push(temporaryArr[i]);
+    // console.log(output);
   }
-  return output;
 }
