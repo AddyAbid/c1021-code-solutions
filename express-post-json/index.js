@@ -18,7 +18,7 @@ app.post('/api/grades', (req, res) => {
   grades[nextId] = req.body;
   nextId++;
   res.status(201);
-  res.send(grades);
+  res.send(req.body);
 });
 app.listen(3000, () => {
   // eslint-disable-next-line no-console
