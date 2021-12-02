@@ -1,14 +1,6 @@
 {
-  "nextId": 13,
+  "nextId": 16,
   "notes": {
-    "2": {
-      "id": 2,
-      "content": "testinggg"
-    },
-    "5": {
-      "id": 5,
-      "content": "In JavaScript, the value of `this` is determined when a function is called; not when it is defined."
-    },
     "6": {
       "id": 6,
       "content": "A closure is formed when a function retains access to variables in its lexical scope."
@@ -16,6 +8,18 @@
     "9": {
       "id": 9,
       "content": "Inertia is a property of matter."
+    },
+    "13": {
+      "content": "helooooo",
+      "id": 13
+    },
+    "14": {
+      "content": "helooooo",
+      "id": 14
+    },
+    "15": {
+      "content": "test562",
+      "id": 15
     }
   }
 }
