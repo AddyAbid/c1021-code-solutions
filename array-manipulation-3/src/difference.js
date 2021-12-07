@@ -1,25 +1,14 @@
 /* exported difference */
 /*
-look at each value in given arrays
-if first is not present in second
-push to storage
-else if second is not present in first
-push to storage
-return storage
+create new array for first arr filtered by if the second arr does not include a value in first
+create new array for second arr filtered by if the first arr does not include a value in second
+combine both new arrays
+return combined array
 */
 
-// function difference(first, second) {
-//   var outPut = [];
-//   for (var i = 0; i < first.length; i++) {
-//     var firstVal = first[i];
-
-//     for (var j = 0; j < second.length; j++) {
-//       var secVal = second[j];
-//     }
-//     if (!second.includes(firstVal)) {
-//       outPut.push(firstVal);
-//       console.log(outPut);
-//     }
-//   }
-//   console.log(outPut);
-// }
+function difference(first, second) {
+  const firstArr = first.filter(index => !second.includes(index));
+  const secondArr = second.filter(index => !first.includes(index));
+  const difference = firstArr.concat(secondArr);
+  return difference;
+}
