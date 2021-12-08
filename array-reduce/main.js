@@ -20,13 +20,14 @@ const traits = [
 
 const sum = numbers.reduce((num1, num2) => num1 + num2, 0);
 const product = numbers.reduce((num1, num2) => num1 * num2, 1);
-const deposits = account.filter(acc => acc.type === 'deposit').reduce((prev, current) => {
-  return prev + current.amount;
+
+const balance = account.reduce((balance, transaction) => {
+  if (transaction.type === 'deposit') {
+    return balance + transaction.amount;
+  }
+  return balance - transaction.amount;
 }, 0);
-const withdrawals = account.filter(acc => acc.type === 'withdrawal').reduce((prev, current) => {
-  return prev + current.amount;
-}, 0);
-const balance = deposits - withdrawals;
+
 const composite = traits.reduce((prev, current) => Object.assign(prev, current), {});
 
 console.log('sum:', sum);
