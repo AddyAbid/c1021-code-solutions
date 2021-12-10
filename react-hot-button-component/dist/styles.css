@@ -1,0 +1,37 @@
+.button-size {
+  padding: 10px 20px;
+}
+
+.clickthree {
+  background-color: rgb(53, 28, 117);
+  color: white;
+}
+
+.clicksix {
+  background-color: rgb(103, 78, 167);
+  color: white;
+}
+
+.clicknine {
+  background-color: rgb(224, 102, 102);
+  color: white;
+}
+
+.clicktwelve {
+  background-color: rgb(246, 178, 107);
+  color: black;
+}
+
+.clickfifteen {
+  background-color: rgb(255, 252, 0);
+  color: black;
+}
+
+.clickeighteen {
+  background-color: white;
+  color: black;
+}
+
+.button-size:hover {
+  cursor: pointer;
+}
