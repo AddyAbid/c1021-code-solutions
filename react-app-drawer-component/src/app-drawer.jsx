@@ -4,23 +4,21 @@ class AppDrawer extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      drawerOpen: false,
-      showMenu: true
+      drawerOpen: false
     };
     this.handleClickDrawer = this.handleClickDrawer.bind(this);
   }
 
   handleClickDrawer() {
     this.setState({
-      drawerOpen: !this.state.drawerOpen,
-      showMenu: !this.state.showMenu
+      drawerOpen: !this.state.drawerOpen
     });
   }
 
   render() {
     return (
       <div>
-        <i className="fas fa-bars fa-2x" onClick={this.handleClickDrawer} id={this.state.showMenu ? 'open' : 'hidden'}></i>
+        <i className="fas fa-bars fa-2x" onClick={this.handleClickDrawer} id={this.state.drawerOpen ? 'hidden' : 'open'}></i>
       <div className="row" id={this.state.drawerOpen ? 'open' : 'hidden'}>
         <div className="column-25">
           <h2>Menu</h2>
