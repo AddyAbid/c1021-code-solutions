@@ -9,10 +9,13 @@
 }
 
 .column-25 {
-  width: 25%;
-  border: 2px solid black;
+  width: 250px;
+  top: 0;
+  bottom: 0;
   text-align: left;
   padding-left: 20px;
+  position: absolute;
+  background-color: white;
 }
 
 .mb {
@@ -25,7 +28,7 @@
 }
 
 .column-75 {
-  width: 75%;
+  width: 100%;
 }
 
 #hidden {
