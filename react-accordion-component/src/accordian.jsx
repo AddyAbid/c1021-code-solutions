@@ -6,17 +6,9 @@ class Accordian extends React.Component {
     this.state = {
       openIndex: null
     };
-    this.handleClose = this.handleClose.bind(this);
-  }
-
-  handleClose() {
-    this.setState({
-      openIndex: null
-    });
   }
 
   render() {
-
     const eachLanguage = (
       <div className="mt">
         {
@@ -25,11 +17,16 @@ class Accordian extends React.Component {
               this.setState({
                 openIndex: index
               });
+              if (this.state.openIndex === obj.key) {
+                this.setState({
+                  openIndex: null
+                });
+              }
             };
             return (
-            <div id="language" className="box" key={index} onClick={handleClick} onDoubleClick={this.handleClose}>
+              <div className="box" key={index} onClick={handleClick}>
               <h4>{obj.language}</h4>
-              <div id={this.state.openIndex === obj.key ? 'open' : 'hidden'} className="descbox"><p>{obj.description}</p></div>
+                <div id={this.state.openIndex === obj.key ? 'open' : 'hidden'} className="descbox"><p>{obj.description}</p></div>
             </div>
             );
           })
