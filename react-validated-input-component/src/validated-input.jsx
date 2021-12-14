@@ -6,25 +6,24 @@ class FormValidator extends React.Component {
     this.state = {
       password: '',
       message: 'A Password is required',
-      validator: 'times'
+      validator: 'times red'
     };
     this.handleChange = this.handleChange.bind(this);
   }
 
   handleChange(event) {
-    const passLength = this.state.password.length;
     this.setState({
       password: event.target.value
     });
-    if (passLength >= 7) {
+    if (event.target.value.length >= 8) {
       this.setState({
         message: '',
-        validator: 'check'
+        validator: 'check green'
       });
-    } else if (passLength <= 7) {
+    } else if (event.target.value.length <= 8) {
       this.setState({
         message: 'Password is too short',
-        validator: 'times'
+        validator: 'times red'
       });
     }
   }
