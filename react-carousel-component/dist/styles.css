@@ -1,0 +1,54 @@
+.container {
+  max-width: 900px;
+  border: 3px solid black;
+}
+
+.row {
+  display: flex;
+}
+
+.align-center {
+  align-items: center;
+}
+
+.right-arrow {
+  float: right;
+}
+
+.col-fourth {
+  width: 25%;
+}
+
+.col-half {
+  width: 50%;
+}
+
+.column-full {
+  width: 100%;
+}
+
+.text-align-center {
+  text-align: center;
+}
+
+.ml {
+  margin-left: 2rem;
+  cursor: pointer;
+}
+
+.mr {
+  margin-right: 2rem;
+  cursor: pointer;
+}
+
+.pd-5 {
+  padding: 0 5px;
+}
+
+.mb-1rem {
+  margin-bottom: 1.5rem;
+}
+
+#hidden {
+  display: none;
+}
