@@ -39,14 +39,18 @@ class Carousel extends React.Component {
                 <div className="col-fourth">
                   <i className="fas fa-chevron-left fa-3x ml" onClick={clickLeft}></i>
                 </div>
-                <div className='col-half' >
+                <div className="col-half" >
                   <img src={poke.img} />
+                  <div className="text-align-center">
+                    <i className={this.state.pokeIndex === index ? 'fas fa-circle' : 'far fa-circle'}></i>
+                  </div>
                 </div>
                 <div className="col-fourth">
                   <i className="fas fa-chevron-right fa-3x right-arrow mr" onClick={clickRight}></i>
                 </div>
+              </div>
+
             </div>
-          </div>
 
           );
         })
@@ -54,9 +58,8 @@ class Carousel extends React.Component {
       </div>
     );
     return (
-      <div>
-        {poke}
-      </div>
+
+      poke
 
     );
   }
