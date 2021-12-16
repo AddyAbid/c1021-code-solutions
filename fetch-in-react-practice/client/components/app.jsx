@@ -49,27 +49,30 @@ export default class App extends React.Component {
   }
 
   toggleCompleted(todoId) {
-    // for (var i = 0; i < this.state.todos.length; i++) {
-    //   const currentTask = this.state.todos[i];
-    //   if (todoId === currentTask.todoId) {
-    //     const copyObj = currentTask;
-    //     copyObj.isCompleted = true;
-    //     fetch(`/api/todos/${todoId}`, {
-    //       method: 'PATCH',
-    //       headers: {
-    //         'Content-Type': 'application/json'
-    //       },
-    //       body: JSON.stringify(copyObj)
-    //     })
-    //       .then(response => response.json())
-    //       .then(data => {
-    //         this.setState({
-    //           todos: data
-    //         });
-    //       });
-    //   }
+    const copyArr = this.state.todos;
+    for (var i = 0; i < this.state.todos.length; i++) {
+      const currentTask = this.state.todos[i];
+      if (todoId === currentTask.todoId) {
+        const copyObj = currentTask;
+        copyObj.isCompleted = !currentTask.isCompleted;
+        copyArr[todoId - 1] = copyObj;
+        fetch(`/api/todos/${todoId}`, {
+          method: 'PATCH',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify(copyObj)
+        })
 
-    // }
+          .then(response => response.json())
+          .then(data => {
+            this.setState({
+              todos: copyArr
+            });
+          });
+      }
+
+    }
 
     /**
      * Find the index of the todo with the matching todoId in the state array.
