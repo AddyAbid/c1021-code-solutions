@@ -6,6 +6,30 @@ class Carousel extends React.Component {
     this.state = {
       pokeIndex: 0
     };
+    this.clickRight = this.clickRight.bind(this);
+    this.clickLeft = this.clickLeft.bind(this);
+  }
+
+  clickRight() {
+    this.setState({
+      pokeIndex: this.state.pokeIndex + 1
+    });
+    if (this.state.pokeIndex > 3) {
+      this.setState({
+        pokeIndex: 0
+      });
+    }
+  }
+
+  clickLeft() {
+    this.setState({
+      pokeIndex: this.state.pokeIndex - 1
+    });
+    if (this.state.pokeIndex < 1) {
+      this.setState({
+        pokeIndex: 4
+      });
+    }
   }
 
   render() {
@@ -13,31 +37,12 @@ class Carousel extends React.Component {
       <div className="container">
       {
         pokemon.map((poke, index) => {
-          const clickRight = () => {
-            this.setState({
-              pokeIndex: this.state.pokeIndex + 1
-            });
-            if (this.state.pokeIndex > 3) {
-              this.setState({
-                pokeIndex: 0
-              });
-            }
-          };
-          const clickLeft = () => {
-            this.setState({
-              pokeIndex: this.state.pokeIndex - 1
-            });
-            if (this.state.pokeIndex < 1) {
-              this.setState({
-                pokeIndex: 4
-              });
-            }
-          };
+
           return (
             <div key={poke.number}>
               <div className="row align-center" id={this.state.pokeIndex === index ? 'open' : 'hidden'}>
                 <div className="col-fourth">
-                  <i className="fas fa-chevron-left fa-3x ml" onClick={clickLeft}></i>
+                  <i className="fas fa-chevron-left fa-3x ml" onClick={this.clickLeft}></i>
                 </div>
                 <div className="col-half" >
                   <img src={poke.img} />
@@ -45,7 +50,7 @@ class Carousel extends React.Component {
                   </div>
                 </div>
                 <div className="col-fourth">
-                  <i className="fas fa-chevron-right fa-3x right-arrow mr" onClick={clickRight}></i>
+                  <i className="fas fa-chevron-right fa-3x right-arrow mr" onClick={this.clickRight}></i>
                 </div>
               </div>
             <div className=" poke">
@@ -57,6 +62,7 @@ class Carousel extends React.Component {
 
           );
         })
+
       }
       </div>
     );
