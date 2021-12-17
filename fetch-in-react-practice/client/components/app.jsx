@@ -31,67 +31,53 @@ export default class App extends React.Component {
           todos: prevState.todos.concat(added)
         }));
       });
-
-    /**
-    * Use fetch to send a POST request to `/api/todos`.
-    * Then 😉, once the response JSON is received and parsed,
-    * add the created todo to the state array.
-    *
-    * Do not mutate the original state array, nor any objects within it.
-    * https://reactjs.org/docs/optimizing-performance.html#the-power-of-not-mutating-data
-    *
-    * TIP: Be sure to SERIALIZE the todo object in the body with JSON.stringify()
-    * and specify the "Content-Type" header as "application/json"
-    *
-    * TIP: Use Array.prototype.concat to create a new array containing the contents
-    * of the old array, plus the object returned by the server.
-    */
   }
 
   toggleCompleted(todoId) {
-    const copyArr = this.state.todos;
-    for (var i = 0; i < this.state.todos.length; i++) {
-      const currentTask = this.state.todos[i];
-      if (todoId === currentTask.todoId) {
-        const copyObj = currentTask;
-        copyObj.isCompleted = !currentTask.isCompleted;
-        copyArr[todoId - 1] = copyObj;
-        fetch(`/api/todos/${todoId}`, {
-          method: 'PATCH',
-          headers: {
-            'Content-Type': 'application/json'
-          },
-          body: JSON.stringify(copyObj)
-        })
 
-          .then(response => response.json())
-          .then(data => {
-            this.setState({
-              todos: copyArr
-            });
-          });
+    let todoIndex;
+    const copyArr = [...this.state.todos];
+
+    for (let i = 0; i < this.state.todos.length; i++) {
+      if (todoId === this.state.todos[i].todoId) {
+        todoIndex = i;
       }
-
     }
+    copyArr[todoIndex].isCompleted === true ? copyArr[todoIndex].isCompleted = false : copyArr[todoIndex].isCompleted = true;
 
-    /**
-     * Find the index of the todo with the matching todoId in the state array.
-     * Get its "isCompleted" status.
-     * Make a new object containing the opposite "isCompleted" status.
-     * Use fetch to send a PATCH request to `/api/todos/${todoId}`
-     * Then 😉, once the response JSON is received and parsed,
-     * replace the old todo in the state array.
-     *
-     * NOTE: "toggle" means to flip back and forth, so clicking a todo
-     * in the list should "toggle" its isCompleted status back and forth.
-     *
-     * Do not mutate the original state array, nor any objects within it.
-     * https://reactjs.org/docs/optimizing-performance.html#the-power-of-not-mutating-data
-     *
-     * TIP: Be sure to SERIALIZE the updates in the body with JSON.stringify()
-     * And specify the "Content-Type" header as "application/json"
-     */
+    fetch(`/api/todos/${todoId}`, {
+      method: 'PATCH',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(copyArr)
+    })
+      .then(response => response.json())
+      .then(data => {
+
+        this.setState({
+          todos: data
+        });
+      });
+
   }
+
+  //  * Find the index of the todo with the matching todoId in the state array.
+  //  * Get its "isCompleted" status.
+  //  * Make a new object containing the opposite "isCompleted" status.
+  //  * Use fetch to send a PATCH request to `/api/todos/${todoId}`
+  //  * Then 😉, once the response JSON is received and parsed,
+  //  * replace the old todo in the state array.
+  //  *
+  //  * NOTE: "toggle" means to flip back and forth, so clicking a todo
+  //  * in the list should "toggle" its isCompleted status back and forth.
+  //  *
+  //  * Do not mutate the original state array, nor any objects within it.
+  //  * https://reactjs.org/docs/optimizing-performance.html#the-power-of-not-mutating-data
+  //  *
+  //  * TIP: Be sure to SERIALIZE the updates in the body with JSON.stringify()
+  //  * And specify the "Content-Type" header as "application/json"
+  //  */
 
   render() {
     return (
