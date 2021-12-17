@@ -43,18 +43,24 @@ export default class App extends React.Component {
       }
     }
 
-    const newObj = copyArr[todoIndex];
+    const target = copyArr[todoIndex];
+    for (const property in target) {
+      const value = target[property];
+      if (value && typeof value === 'object') {
+        target[property] = value;
+      }
+    }
 
-    newObj.isCompleted === true
-      ? newObj.isCompleted = false
-      : newObj.isCompleted = true;
+    target.isCompleted === true
+      ? target.isCompleted = false
+      : target.isCompleted = true;
 
     fetch(`/api/todos/${todoId}`, {
       method: 'PATCH',
       headers: {
         'Content-Type': 'application/json'
       },
-      body: JSON.stringify(newObj)
+      body: JSON.stringify(target)
     })
       .then(response => response.json())
       .then(data => {
