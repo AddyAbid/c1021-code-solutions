@@ -1,19 +1,51 @@
 import React from 'react';
-
+// const timerId = null;
 class Carousel extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       pokeIndex: 0,
-      dotIndex: 0,
-      activeInterval: true
+      activeInterval: true,
+      intervalId: null
     };
     this.clickRight = this.clickRight.bind(this);
     this.clickLeft = this.clickLeft.bind(this);
     this.dotClick = this.dotClick.bind(this);
-    this.nextImage = this.nextImage.bind(this);
+    // this.nextImage = this.nextImage.bind(this);
+    // this.startTimer = this.startTimer.bind(this);
 
   }
+
+  // startTimer(number) {
+  //   console.log(event.id);
+  //   let num = this.state.pokeIndex;
+  //   timerId = setInterval(() => {
+  //     console.log(timerId);
+  //     this.setState({
+  //       pokeIndex: num
+
+  //     });
+  //     num++;
+  //     if (num === 5) {
+  //       num = 0;
+
+  //     }
+  //   }, 2000);
+
+  // }
+
+  // dotClick(event) {
+  //   const idNum = Number(event.target.id);
+
+  //   clearInterval(timerId);
+
+  //   this.setState({
+  //     pokeIndex: idNum,
+  //     intervalId: null
+  //   });
+  //   this.startTimer(idNum);
+  //   console.log(this.state);
+  // }
 
   clickRight() {
     this.setState({
@@ -41,32 +73,9 @@ class Carousel extends React.Component {
     }
   }
 
-  dotClick(event) {
-    const idNum = Number(event.target.id);
-    this.setState({
-      pokeIndex: idNum
-    });
+  componentDidMount() {
+    window.addEventListener('load', this.startTimer);
   }
-
-  nextImage() {
-    this.setState({
-      pokeIndex: this.state.pokeIndex + 1
-    });
-    if (this.state.pokeIndex >= 4) {
-      this.setState({
-        pokeIndex: 0
-
-      });
-
-    }
-    // console.log(this.state.pokeIndex);
-  }
-
-  // componentDidMount() {
-  //   if (this.state.activeInterval) {
-  //     setInterval(this.nextImage, 1000);
-  //   }
-  // }
 
   render() {
 
@@ -92,7 +101,7 @@ class Carousel extends React.Component {
               pokemon.map((dots, index) => {
 
                 return (
-                  <i onClick={this.dotClick} key={dots.number} id={index} className={this.state.pokeIndex === index
+                  <i onClick={this.dotClick} onChange={this.startTimer} key={dots.number} id={index} className={this.state.pokeIndex === index
                     ? 'fas fa-circle pd-5'
                     : 'far fa-circle pd-5' }></i>
                 );
