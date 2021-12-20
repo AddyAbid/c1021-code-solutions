@@ -1,0 +1,78 @@
+flow = [
+  user-can-sign-up: {
+    front-end: {
+      - user clicks sign up has change is changed and state is set to new route
+      - handleChange is called and sets state with inpute values
+      - handleSubmit gets called with sign-up action and sends fetch request
+      - request is sent with sign-up endpoint and hash gets changed to sign-in
+    },
+    server: {
+      - json middleware is defined and use is called with json middleware as an argument to handle json requests
+      - post request is sent and sets username and password to each property of the body property of the req object
+      - if no username or password
+        - ClientError function is invoked and thrown from the function
+      - otherwise
+        - hash method converts password to hash string
+        - database is queried
+        - username and hashedpassword are insterted into a new row with the respective values
+        - the server sends a response
+        - user is assigned to the user property of the rows property of the result object
+        - status code is sent in the response along with the json user object
+        - if any errors
+          - catch method looks for a function definition with 4 parameters and errorMiddleware is invoked
+          - this sends a status and message
+    },
+    databse: {
+      - the query from the server inserts a new row in the users tabe
+      - containing the new userId, username and the hashedpassword from the argon2 object
+    }
+  },
+  user-can-sign-in: {
+    front-end: {
+      - user clicks sign in has change is changed and state is set to new route
+      - handleChange is called and sets state with inpute values
+      - handleSubmit gets called with sign-in action and sends fetch request
+      - request is sent with sign-in endpoint
+      - handleSignIn is called and sets the user and token in local storage
+      - sets state to user
+    },
+    server: {
+      - post request is sent and sets username and password to each property of the body property of the req object
+      - if no username or password
+        - ClientError function is invoked and thrown from the function
+      - otherwise
+      - database gets queried with the username as its where value if user exists
+      - the verify method of the argon2 is called with the hasshedpassword and password to see if they match
+      - boolean is returned and
+        - if false
+          - ClientError function is invoked and thrown from the function
+        - otherwise
+          - new object is created containing user info
+          - json web token is created
+          - response is sent with token and user object
+          - if any errors
+            - catch method looks for a function definition with 4 parameters and errorMiddleware is invoked
+            - this sends a status and message
+    },
+    database: {
+      - the query from the server selects the respective row in the users tabe
+    }
+  },
+  user-can-stay-signed-in: {
+    -if user refreshed page once signed in
+      - hash changes to #
+      - componentDidMount listens for hashchange event and sets state to route
+      - gets web token from local storage
+      - if the user has a web token the decode function is invoked with the token as the argument
+  },
+  user-can-sign-out: {
+    front-end: {
+      -on navbar module if user clicks sign out
+        - handleSignOut is invoked
+        - user and web token are removed from local storage
+        - state sets user to null
+        - home.jsx returns redirect.jsx sign in since user is null
+        - hash gets set to with props.to #sign-in
+    }
+  }
+]
