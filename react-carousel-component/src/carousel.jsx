@@ -1,5 +1,5 @@
 import React from 'react';
-// const timerId = null;
+
 class Carousel extends React.Component {
   constructor(props) {
     super(props);
@@ -11,59 +11,35 @@ class Carousel extends React.Component {
     this.clickRight = this.clickRight.bind(this);
     this.clickLeft = this.clickLeft.bind(this);
     this.dotClick = this.dotClick.bind(this);
-    // this.nextImage = this.nextImage.bind(this);
-    // this.startTimer = this.startTimer.bind(this);
 
   }
 
-  // startTimer(number) {
-  //   console.log(event.id);
-  //   let num = this.state.pokeIndex;
-  //   timerId = setInterval(() => {
-  //     console.log(timerId);
-  //     this.setState({
-  //       pokeIndex: num
+  dotClick(event) {
+    this.setState({ intervalId: null });
+    const idNum = Number(event.target.id);
+    this.setState({
+      pokeIndex: idNum,
+      intervalId: null
+    });
 
-  //     });
-  //     num++;
-  //     if (num === 5) {
-  //       num = 0;
-
-  //     }
-  //   }, 2000);
-
-  // }
-
-  // dotClick(event) {
-  //   const idNum = Number(event.target.id);
-
-  //   clearInterval(timerId);
-
-  //   this.setState({
-  //     pokeIndex: idNum,
-  //     intervalId: null
-  //   });
-  //   this.startTimer(idNum);
-  //   console.log(this.state);
-  // }
+  }
 
   clickRight() {
+    this.setState({ intervalId: null });
     this.setState({
       pokeIndex: this.state.pokeIndex + 1
-
     });
     if (this.state.pokeIndex > 3) {
       this.setState({
         pokeIndex: 0
-
       });
     }
   }
 
   clickLeft() {
+    this.setState({ intervalId: null });
     this.setState({
       pokeIndex: this.state.pokeIndex - 1
-
     });
     if (this.state.pokeIndex < 1) {
       this.setState({
@@ -74,11 +50,19 @@ class Carousel extends React.Component {
   }
 
   componentDidMount() {
-    window.addEventListener('load', this.startTimer);
+    this.intervalId = setInterval(() => {
+      let num = this.state.pokeIndex + 1;
+      if (num === 5) {
+        num = 0;
+      }
+      this.setState({
+        pokeIndex: num,
+        intervalId: this.state.intervalId
+      });
+    }, 3000);
   }
 
   render() {
-
     return (
       <div className="container">
       <div>
