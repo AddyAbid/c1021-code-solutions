@@ -71,7 +71,7 @@ class Carousel extends React.Component {
             <i className="fas fa-chevron-left fa-3x ml" onClick={this.clickLeft}></i>
           </div>
           <div className="col-half" >
-            <img src={pokemon[this.state.pokeIndex].img} />
+            <img src={this.props.images[this.state.pokeIndex].img} />
             <div className="text-align-center">
             </div>
           </div>
@@ -82,7 +82,7 @@ class Carousel extends React.Component {
 
             <div className='dots'>
               {
-              pokemon.map((dots, index) => {
+              this.props.images.map((dots, index) => {
 
                 return (
                   <i onClick={this.dotClick} onChange={this.startTimer} key={dots.number} id={index} className={this.state.pokeIndex === index
@@ -94,18 +94,8 @@ class Carousel extends React.Component {
             </div>
         </div>
       </div>
-
     );
-
   }
 }
 
 export default Carousel;
-
-const pokemon = [
-  { number: '001', name: 'Bulbasaur', img: 'images/001.png' },
-  { number: '004', name: 'Charmander', img: 'images/004.png' },
-  { number: '007', name: 'Squirtle', img: 'images/007.png' },
-  { number: '025', name: 'Pikachu', img: 'images/025.png' },
-  { number: '039', name: 'Jigglypuff', img: 'images/039.png' }
-];
