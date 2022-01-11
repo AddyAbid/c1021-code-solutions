@@ -1,14 +1,15 @@
 /* exported maxValue */
 
 function maxValue(stack) {
-  var tempArr = [];
-  while (stack.peek() !== undefined) {
-    tempArr.push(stack.peek());
-    stack.pop();
-  }
-  if (tempArr.length === 0) {
+  if (stack.peek() === undefined) {
     return -Infinity;
-  } else {
-    return Math.max(...tempArr);
   }
+  var temp = stack.peek();
+  while (stack.peek() !== undefined) {
+    var nextInLine = stack.pop();
+    if (temp < nextInLine) {
+      temp = nextInLine;
+    }
+  }
+  return temp;
 }

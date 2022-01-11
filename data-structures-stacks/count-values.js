@@ -1,9 +1,9 @@
 /* exported countValues */
 function countValues(stack) {
-  var tempArr = [];
+  var counter = 0;
   while (stack.peek() !== undefined) {
-    tempArr.push(stack.peek());
+    counter++;
     stack.pop();
   }
-  return tempArr.length;
+  return counter;
 }

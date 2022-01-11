@@ -1,13 +1,19 @@
 /* exported get2ndFromTop */
 
 function get2ndFromTop(stack) {
-  var tempArr = [];
-  while (stack.peek() !== undefined) {
-    tempArr.push(stack.peek());
-    stack.pop();
+  if (stack.peek() === undefined) {
+    return undefined;
   }
-  for (var i = tempArr.length; i-- > 0;) {
-    stack.push(tempArr[i]);
+  if (stack.peek() !== undefined) {
+    var first = stack.pop();
   }
-  return tempArr[1];
+  if (stack.peek() !== undefined) {
+    var second = stack.pop();
+    stack.push(second);
+    stack.push(first);
+    return second;
+  } else {
+    stack.push(first);
+  }
+
 }
