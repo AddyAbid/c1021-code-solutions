@@ -1,5 +1,7 @@
 /* exported flatten */
-
+/**
+ *
+ */
 function flatten(array) {
   var outPut = [];
   if (Array.isArray(array)) {
