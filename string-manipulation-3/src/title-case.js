@@ -1,43 +1,30 @@
 /* exported titleCase */
 
-// function titleCase(title) {
-//   var word = title.toLowerCase();
-//   word = word.split(': ');
-//   console.log(word);
-//   word = word.join(': ');
-//   console.log(word);
-//   for (var i = 0; i < word.length; i++) {
-//     word[i] = word[i][0].toUpperCase() + word[i].substring(1);
-//     if (word[i] === 'Javascript') {
-//       word[i] = 'JavaScript';
-//     }
-//     var newWord = word[i];
-//   }
-//   console.log(newWord);
-//   var joinedByColon = newWord.join(' ');
-// //   // console.log(joinedByColon);
-// }
-
-// function titleCase(title) {
-//   var word = title.toLowerCase();
-//   word = word.split(' ');
-//   for (var i = 0; i < word.length; i++) {
-//     word[i] = word[i][0].toUpperCase() + word[i].substring(1);
-//     if (word[i] === 'In' || word[i] === 'In' || word[i] === 'A' || word[i] === 'An' || word[i] === 'The' || word[i] === 'As' || word[i] === 'At' || word[i] === 'By' || word[i] === 'For' || word[i] === 'Of' || word[i] === 'On' || word[i] === 'Per' || word[i] === 'To') {
-//       word[i] = word[i].toLowerCase();
-//     } else if (word[i] === 'Javascript') {
-//       word[i] = 'JavaScript';
-//     } else if (word[i] === 'Javascript:') {
-//       word[i] = 'JavaScript:';
-//     } else if (word[i] === 'Api') {
-//       word[i] = 'API';
-//     } else if (word[i - 1] === 'JavaScript:') {
-//       word[i] = word[i].toUpperCase();
-//     }
-//   }
-
-//   var outPut = word.join(' ');
-//   outPut = outPut[0].toUpperCase() + outPut.substring(1);
-//   console.log(outPut);
-//   return outPut;
-// }
+function titleCase(title) {
+  var lowerCaseWords = ['and', 'or', 'nor', 'but', 'a', 'an', 'the', 'as', 'at', 'by', 'for', 'in', 'of', 'on', 'per', 'to'];
+  var output = '';
+  var titleSplit = title.split(' ');
+  for (var i = 0; i < titleSplit.length; i++) {
+    if (titleSplit[i].toLowerCase() === 'api') {
+      titleSplit.splice(i, 1, 'API');
+    } else if (titleSplit[i].toLowerCase() === 'javascript') {
+      titleSplit.splice(i, 1, 'JavaScript');
+    } else if (titleSplit[i].toLowerCase() === 'javascript:') {
+      titleSplit.splice(i, 1, 'JavaScript:');
+    } else if (lowerCaseWords.includes(titleSplit[i])) {
+      titleSplit.splice(i, 1, titleSplit[i].toLowerCase());
+    } else {
+      titleSplit.splice(i, 1, titleSplit[i][0].toUpperCase() + titleSplit[i].slice(1).toLowerCase());
+    }
+  }
+  var modTitle = titleSplit.join(' ');
+  for (var j = 0; j < modTitle.length; j++) {
+    if (modTitle[j] === ':') {
+      modTitle = modTitle.slice(0, j + 1) + ' ' + modTitle[j + 2].toUpperCase() + modTitle.slice(j + 3, modTitle.length);
+    } else if (modTitle[j] === '-') {
+      modTitle = modTitle.slice(0, j + 1) + modTitle[j + 1].toUpperCase() + modTitle.slice(j + 2, modTitle.length);
+    }
+  }
+  output = modTitle[0].toUpperCase() + modTitle.slice(1);
+  return output;
+}
