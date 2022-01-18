@@ -8,12 +8,8 @@ push to output storage
 
 function zip(first, second) {
   var outPut = [];
-  if (first.length > second.length) {
-    first.pop();
-  } else if (first.length < second.length) {
-    second.pop();
-  }
-  for (var i = 0; i < first.length; i++) {
+  var length = Math.min(first.length, second.length);
+  for (var i = 0; i < length; i++) {
     outPut.push([].concat(first[i], second[i]));
   }
   return outPut;
